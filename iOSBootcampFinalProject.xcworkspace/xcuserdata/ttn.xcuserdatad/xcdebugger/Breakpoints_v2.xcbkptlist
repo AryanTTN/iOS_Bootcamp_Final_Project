@@ -7,49 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B1064F4-0058-46F5-8E32-239AC31A9D7D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSBootcampFinalProject/Modules/Home/HomePageViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5BF77768-4F56-4228-9CD4-C13DB5C5A27A"
+            uuid = "EF101DE0-58E1-42F8-8D42-2AB67B059C40"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iOSBootcampFinalProject/Modules/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "fetchHomeApiData(completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "561386B8-F108-4DA4-A6B3-D5ADA09FEAC5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iOSBootcampFinalProject/Modules/Home/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "fetchHomeApiData(completion:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EF101DE0-58E1-42F8-8D42-2AB67B059C40 - ea64aec950e0de23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;iOSBootcampFinalProject.MainData, Swift.Error&gt;) -&gt; () in iOSBootcampFinalProject.HomeViewModel.fetchHomeApiData(completion: (Swift.Bool, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "iOSBootcampFinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Macintosh%20HD%201/iOSBootcampFinalProject/iOSBootcampFinalProject/Modules/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "307">
+               </Location>
+               <Location
+                  uuid = "EF101DE0-58E1-42F8-8D42-2AB67B059C40 - ea64aec950e0de23"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;iOSBootcampFinalProject.MainData, Swift.Error&gt;) -&gt; () in iOSBootcampFinalProject.HomeViewModel.fetchHomeApiData(completion: (Swift.Bool, Swift.String) -&gt; ()) -&gt; ()"
+                  moduleName = "iOSBootcampFinalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Macintosh%20HD%201/iOSBootcampFinalProject/iOSBootcampFinalProject/Modules/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "335">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

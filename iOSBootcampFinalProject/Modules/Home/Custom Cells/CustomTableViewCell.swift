@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol CustomTableCellProtocol: AnyObject where Self: UITableViewDelegate {
+    func cellTapped(sectionIndex: Int, itemIndex: Int)
+}
+
+
 class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
+    
+    weak var delegate: CustomTableCellProtocol?
+    var cellIndex: Int = 0
     var movieData: [MovieData]?
     
     static let identifier = "CustomTableViewCell"
@@ -70,9 +78,7 @@ extension CustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailScreenViewController") as! DetailScreenViewController
-        vc.data = movieData?[indexPath.item]
-        print ("I tapped")
+        delegate?.cellTapped(sectionIndex: cellIndex, itemIndex: indexPath.row)
     }
     
 }

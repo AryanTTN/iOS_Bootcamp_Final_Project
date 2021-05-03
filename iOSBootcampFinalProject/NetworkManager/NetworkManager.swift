@@ -11,17 +11,17 @@ import Foundation
 class NetworkManager {
     
     
-    func fetchApiData(urlType: ApiConstants, completion: @escaping (Result<MainData,Error>) -> Void){
+    func fetchTheMovieDBData(urlType: ApiConstants, completion: @escaping (Result<MainData,Error>) -> Void){
         let url = URL(string: urlType.finalUrl)!
-        APICall().request(url, for: MainData.self) { (result) in
-            completion(result)
+        APICall().request(url, for: MainData.self) {
+            completion($0)
         }
     }
     
     func fetchUserData(urlType: ApiConstants, completion: @escaping (Result<[Int],Error>) -> Void){
         let url = URL(string: urlType.finalUrl)!
-        APICall().request(url, for: [Int].self) { (result) in
-            completion(result)
+        APICall().request(url, for: [Int].self) {
+            completion($0)
         }
     }
 }

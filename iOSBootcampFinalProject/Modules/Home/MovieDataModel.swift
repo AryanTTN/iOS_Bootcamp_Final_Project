@@ -13,24 +13,25 @@ struct HomeData {
     let movieData: [MovieData]?
 }
 
-struct MainData: Decodable {
+struct MainData: Codable {
 //    let page: Int?
     let results: [MovieData]?
 //    let total_pages, total_results: Int?
 }
 
 // MARK: - Result
-struct MovieData: Decodable {
-//    let adult: Bool?
-//    let backdrop_path: String?
-//    let genre_ids: [Int]?
-//    let id: Int?
-//    let original_language: String?
-//    let original_title, overview: String?
-//    let popularity: Double?
+struct MovieData: Codable {
+    let adult: Bool?
+    let backdrop_path: String?
+    let genre_ids: [Int]?
+    let id: Int?
+    let original_language: String?
+    let original_title, overview: String?
+    let popularity: Double?
     let poster_path, release_date, title: String?
-//    let video: Bool?
-//    let vote_average, vote_count: Int?
+    let video: Bool?
+    let vote_average: Double?
+    let vote_count: Int?
 }
 
 

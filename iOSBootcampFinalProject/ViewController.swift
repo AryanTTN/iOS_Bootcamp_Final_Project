@@ -123,7 +123,14 @@ extension ViewController: LoginButtonDelegate{
         let token = result?.token?.tokenString
         let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "id, email, first_name, last_name, picture, short_name, name, middle_name, name_format,age_range"], tokenString: token, version: nil, httpMethod: .get)
         request.start { (connection, result, error) in
-            print("\(result)")
+            UserDefaults.standard.set(true, forKey: "ISUSERLOGGEDIN")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+            
+            // This is to get the SceneDelegate object from your view controller
+            // then call the change root view controller function to change to main tab bar
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+            
         }
     }
     
@@ -137,6 +144,14 @@ extension ViewController: LoginButtonDelegate{
 extension ViewController: GIDSignInDelegate{
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("\(user.profile.email ?? "NO Email")")
+        UserDefaults.standard.set(true, forKey: "ISUSERLOGGEDIN")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBarController")
+        
+        // This is to get the SceneDelegate object from your view controller
+        // then call the change root view controller function to change to main tab bar
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+        
     }
     
     

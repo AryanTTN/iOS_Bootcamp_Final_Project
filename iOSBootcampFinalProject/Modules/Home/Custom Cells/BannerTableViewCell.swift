@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol BannerTableCellProtocol: AnyObject where Self: UITableViewDelegate {
+    func bannerTapped(sectionIndex: Int, itemIndex: Int)
+}
+
 class BannerTableViewCell: UITableViewCell {
 
 
     @IBOutlet weak var bannerCollectionView: UICollectionView!
+    weak var delegate: BannerTableCellProtocol?
+    var cellIndex: Int = 0
     var movieData: [MovieData]?
     
     static let identifier = "BannerTableViewCell"
@@ -83,6 +89,8 @@ extension BannerTableViewCell: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: width, height: width*(9/16))
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.bannerTapped(sectionIndex: cellIndex, itemIndex: indexPath.row)
+    }
     
 }

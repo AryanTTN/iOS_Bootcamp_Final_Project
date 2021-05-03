@@ -16,7 +16,7 @@ class HomeViewModel {
         
         homeApiData.removeAll()
         for genre in ApiConstants.genre.allCases {
-            NetworkManager().fetchApiData(urlType: .home(genre)) { (result) in
+            NetworkManager().fetchTheMovieDBData(urlType: .home(genre)) { (result) in
                 switch result{
                 case .success(let data):
                     if genre == .banner {

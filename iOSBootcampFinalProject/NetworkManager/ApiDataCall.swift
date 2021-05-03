@@ -13,9 +13,12 @@ class APICall {
     
     let session = URLSession.shared
     
-    func request<T: Decodable>(_ url: URL, for dataType: T.Type , completion: @escaping (Result<T,Error>) -> Void )  {
-        let sessionTask = session.dataTask(with: url ) { (data, response, error) in
-            if let apiError = error{
+    func request<T: Decodable>(_ url: URL, with method: HTTPMethod = .get, for dataType: T.Type , completion: @escaping (Result<T,Error>) -> Void )  {
+    
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        let sessionTask = session.dataTask(with: request) { (data, response, error) in
+            if let apiError = error {
                 DispatchQueue.main.async {
                     completion(.failure(apiError))
                 }
@@ -25,9 +28,9 @@ class APICall {
                     DispatchQueue.main.async {
                         completion(.success(parseData))
                     }
-                }catch {
+                } catch let error {
                     DispatchQueue.main.async {
-                        completion(.failure(NSError.init(domain: "Failed To parse Data", code: 1, userInfo: nil)))
+                        completion(.failure(error))
                     }
                 }
             } else {

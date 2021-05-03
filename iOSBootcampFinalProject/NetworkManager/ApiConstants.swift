@@ -12,6 +12,7 @@ enum ApiConstants {
     
     case home(genre)
     case user
+    case search(String)
     
     enum genre: String, CaseIterable {
         
@@ -28,7 +29,7 @@ enum ApiConstants {
     
     var baseUrl: String {
         switch self {
-        case .home(_):
+        case .home(_), .search(_):
             return "https://api.themoviedb.org/3/"
         case .user:
             return ""
@@ -52,17 +53,32 @@ enum ApiConstants {
             }
         case .user:
             return ""
-        
+        case .search(let query):
+            let encodedQuery: String = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? query
+            return "search/movie?&query=" + encodedQuery
+            
         }
     }
     var apiKey: String {
         
         switch self {
-        case .home(_):
+        case .home(_), .search(_):
             return "&api_key=820016b7116f872f5f27bf56f9fdfb66"
         case .user:
             return ""
         
         }
     }
+}
+
+public enum HTTPMethod: String {
+    case options = "OPTIONS"
+    case get = "GET"
+    case head = "HEAD"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+    case trace = "TRACE"
+    case connect = "CONNECT"
 }

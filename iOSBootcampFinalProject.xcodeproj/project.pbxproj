@@ -37,6 +37,8 @@
 		458453B72630D84800EA7DC5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458453B62630D84700EA7DC5 /* SignUpViewController.swift */; };
 		458453B92630E37300EA7DC5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458453B82630E37300EA7DC5 /* CoreDataManager.swift */; };
 		458453BB2630EB0300EA7DC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458453BA2630EB0300EA7DC5 /* HomePageViewController.swift */; };
+		45A0251E2640456200F121F7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0251D2640456200F121F7 /* SearchViewController.swift */; };
+		45A0252026404C4E00F121F7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A0251F26404C4E00F121F7 /* SearchViewModel.swift */; };
 		45A3D155263C787E0024BE16 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D153263C787E0024BE16 /* CustomCollectionViewCell.swift */; };
 		45A3D156263C787E0024BE16 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45A3D154263C787E0024BE16 /* CustomCollectionViewCell.xib */; };
 		45A3D158263C80060024BE16 /* imageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D157263C80060024BE16 /* imageViewExtension.swift */; };
@@ -122,6 +124,8 @@
 		458453B62630D84700EA7DC5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		458453B82630E37300EA7DC5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		458453BA2630EB0300EA7DC5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		45A0251D2640456200F121F7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		45A0251F26404C4E00F121F7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		45A3D153263C787E0024BE16 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		45A3D154263C787E0024BE16 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		45A3D157263C80060024BE16 /* imageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageViewExtension.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		450C7DA5263C6CD90073CD70 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				45A0251C2640452E00F121F7 /* Search  */,
 				450C7DA6263C6D170073CD70 /* Home */,
 			);
 			path = Modules;
@@ -280,6 +285,15 @@
 				4573A92E26376EEB005296B5 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		45A0251C2640452E00F121F7 /* Search  */ = {
+			isa = PBXGroup;
+			children = (
+				45A0251D2640456200F121F7 /* SearchViewController.swift */,
+				45A0251F26404C4E00F121F7 /* SearchViewModel.swift */,
+			);
+			path = "Search ";
 			sourceTree = "<group>";
 		};
 		45C2D73F263996BD00901118 /* Theme */ = {
@@ -641,10 +655,12 @@
 				45C2D75726399F5600901118 /* LightTheme.swift in Sources */,
 				45C2D75B26399F6600901118 /* DarkTheme.swift in Sources */,
 				45B0F7CB263F619D00B46FDA /* SideMenuDrawer.swift in Sources */,
+				45A0252026404C4E00F121F7 /* SearchViewModel.swift in Sources */,
 				454896B9262588D700F3ECA4 /* iOSBootcampFinalProject.xcdatamodeld in Sources */,
 				45C2D74F26399CCA00901118 /* Theme.swift in Sources */,
 				4573A92F26376EEB005296B5 /* UIAlertControllerExtension.swift in Sources */,
 				450C7D9C263C38F90073CD70 /* ApiDataCall.swift in Sources */,
+				45A0251E2640456200F121F7 /* SearchViewController.swift in Sources */,
 				454896AF262588D700F3ECA4 /* AppDelegate.swift in Sources */,
 				4573A92B26376EBA005296B5 /* StringExtension.swift in Sources */,
 				454896B1262588D700F3ECA4 /* SceneDelegate.swift in Sources */,

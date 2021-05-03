@@ -104,7 +104,7 @@ class HomePageViewController: UIViewController, MenuControllerDelegate {
 
        }
     
-    @objc func fetchHomeScreenData(){
+    @objc func fetchHomeScreenData() {
         homeVM.fetchHomeApiData { (success, message) in
             self.refreshControl.endRefreshing()
             if success {
@@ -115,7 +115,11 @@ class HomePageViewController: UIViewController, MenuControllerDelegate {
         }
     }
 
-   
+    func openDetailScreen(_ sectionIndex: Int, _ itemIndex: Int) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailScreenViewController") as! DetailScreenViewController
+        vc.data = homeVM.homeApiData[sectionIndex].movieData?[itemIndex]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HomePageViewController: UITableViewDelegate, UITableViewDataSource{
@@ -126,10 +130,14 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = homePageTableView.dequeueReusableCell(withIdentifier: BannerTableViewCell.identifier, for: indexPath) as! BannerTableViewCell
+            cell.cellIndex = indexPath.row
+            cell.delegate = self
             cell.configure(homeVM.homeApiData[indexPath.row])
             return cell
         } else {
             let cell = homePageTableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath) as! CustomTableViewCell
+            cell.cellIndex = indexPath.row
+            cell.delegate = self
             cell.configure(homeVM.homeApiData[indexPath.row])
             return cell
         }
@@ -144,11 +152,15 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////        let cell = homePageTableView.cellForRow(at: indexPath) as! CustomTableViewCell
-////        cell.buttonAction()
-//        homePageTableView.reloadRows(at: [indexPath], with: .middle)
-//
-//    }
+}
+
+extension HomePageViewController: CustomTableCellProtocol, BannerTableCellProtocol {
+    func bannerTapped(sectionIndex: Int, itemIndex: Int) {
+        openDetailScreen(sectionIndex, itemIndex)
+    }
     
+    func cellTapped(sectionIndex: Int, itemIndex: Int) {
+        openDetailScreen(sectionIndex, itemIndex)
+    }
+
 }
