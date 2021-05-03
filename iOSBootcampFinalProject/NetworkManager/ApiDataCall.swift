@@ -44,3 +44,8 @@ class APICall {
     }
     
 }
+//do {
+//try JSONDecoder().decode(MyStruct.self, from: someData)
+//} catch let error {
+//completion(.failiure(error))
+//}
