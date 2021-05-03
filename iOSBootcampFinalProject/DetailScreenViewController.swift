@@ -26,12 +26,18 @@ class DetailScreenViewController: UIViewController {
         super.viewDidLoad()
         
         movieTitle.text = data?.title
-        voteLabel.text = "\((data?.vote_average) ?? 0)"
+        voteLabel.text = String(data?.vote_average ?? 0)//"\((data?.vote_average) ?? 0)"
         voteCountLabel.text = "\((data?.vote_count) ?? 0)"
         languageLabel.text = data?.original_language
         overviewTextView.text = data?.overview
         if let movieImagePath = data?.poster_path, let url = URL(string: "https://image.tmdb.org/t/p/w500" + movieImagePath){
-            movieImage.downloadedFrom(url: url)
+            self.movieImage.alpha = 0
+            movieImage.downloadedFrom(url: url) {_ in
+                UIView.animate(withDuration: 0.5) {
+                    self.movieImage.alpha = 1
+                }
+            }
+            
         }
     }
     

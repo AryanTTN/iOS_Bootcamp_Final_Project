@@ -39,7 +39,12 @@ class CustomCollectionViewCell: UICollectionViewCell {
     func configure(_ data: MovieData?){
         
         if let posterPath = data?.poster_path, let url = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath){
-            moviePosterImage.downloadedFrom(url: url)
+            self.moviePosterImage.alpha = 0
+            moviePosterImage.downloadedFrom(url: url) {_ in
+                UIView.animate(withDuration: 0.5) {
+                    self.moviePosterImage.alpha = 1
+                }
+            }
         }
         movieNameLabel.text = data?.title
         secondaryLabel.text = data?.release_date

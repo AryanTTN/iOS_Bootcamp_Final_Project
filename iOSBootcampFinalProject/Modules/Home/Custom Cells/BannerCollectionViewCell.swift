@@ -36,7 +36,13 @@ class BannerCollectionViewCell: UICollectionViewCell {
     func configure(_ data: MovieData?){
         
         if let posterPath = data?.poster_path, let url = URL(string: "https://image.tmdb.org/t/p/w500" + posterPath){
-            bannerImageView.downloadedFrom(url: url)
+            self.bannerImageView.alpha = 0
+            bannerImageView.downloadedFrom(url: url) {_ in
+                UIView.animate(withDuration: 0.5) {
+                    self.bannerImageView.alpha = 1
+                }
+            }
+
         }
         bannerLabel.text = ("  \(data?.title ?? "")  ")
         
