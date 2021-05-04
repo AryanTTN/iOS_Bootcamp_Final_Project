@@ -53,7 +53,7 @@ class MenuController: UITableViewController {
         super.viewDidLoad()
         tableView.backgroundColor = Theme.current.background
         tableView.rowHeight = 80
-        view.backgroundColor = Theme.current.background
+        self.view.backgroundColor = Theme.current.background
     }
 
     // Table

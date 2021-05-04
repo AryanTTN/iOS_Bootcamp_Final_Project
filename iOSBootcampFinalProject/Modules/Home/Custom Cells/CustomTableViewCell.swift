@@ -34,7 +34,7 @@ class CustomTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         expandButton.isHidden = true
-       // self.selectionStyle = .none
+        // self.selectionStyle = .none
         genreCollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
         
         genreCollectionView.layer.cornerRadius = 10
@@ -48,20 +48,21 @@ class CustomTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     func configure(_ data: HomeData){
         titleLabel.text = data.sectionTitle
+        titleLabel.font = Theme.current.mainFontName
         movieData = data.movieData
         genreCollectionView.reloadData()
         //buttonAction()
     }
-//    func buttonAction() {
-//        collectionViewHeightConstraint.constant = expandButton.isSelected ? 0 : 260
-//        expandButton.isSelected = !expandButton.isSelected
-//    }
+    //    func buttonAction() {
+    //        collectionViewHeightConstraint.constant = expandButton.isSelected ? 0 : 260
+    //        expandButton.isSelected = !expandButton.isSelected
+    //    }
     
 }
 

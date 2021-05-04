@@ -9,22 +9,22 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var searchCollectionView: UICollectionView!
     var searchVM = SearchViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         showSearchBar()
         searchCollectionView.register(CustomCollectionViewCell.nib(), forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
-
+        
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
-
+    
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
@@ -37,7 +37,7 @@ class SearchViewController: UIViewController {
         searchController.searchBar.placeholder = "Search here"
         navigationItem.searchController = searchController
     }
-
+    
     func fetchSearchData(searchText: String) {
         guard !searchText.isEmpty else { return }
         searchVM.fetchSearchApiData(searchString: searchText) { (success, message) in
@@ -48,7 +48,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

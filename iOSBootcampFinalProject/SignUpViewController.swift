@@ -69,6 +69,6 @@ class SignUpViewController: UIViewController {
             print("Please check your details")
         }
     }
-
+    
     
 }
